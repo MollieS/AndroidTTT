@@ -11,10 +11,10 @@
     tools:context=".MenuActivity">
 
     <Button
-        android:id="@+id/play_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:text="@string/play_button"
+        android:id="@+id/play_button"
         android:layout_centerVertical="true"
-        android:text="@string/play_button"/>
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
