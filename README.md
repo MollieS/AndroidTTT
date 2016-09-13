@@ -38,7 +38,7 @@ Tic Tac Toe game for Android
 
 ## How to test
 
-* Acceptence tests are written using the espresso testing framework which requires an emulator.
+* Acceptance tests are written using the espresso testing framework which requires an emulator.
 * To run from the command line, from within the TicTacToe directory, run `./gradlew connectedCheck`
 * To run in Android Studio, right click the test directory and select "run"
 
