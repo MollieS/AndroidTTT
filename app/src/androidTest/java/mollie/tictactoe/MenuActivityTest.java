@@ -21,7 +21,7 @@ public class MenuActivityTest {
     public IntentsTestRule<MenuActivity> mIntentsTestRule = new IntentsTestRule<>(MenuActivity.class);
 
     @Test
-    public void choosingAGameRedirectsToMainPage() {
+    public void clickingThePlayButtonShowsTheBoard() {
         onView(withId(R.id.play_button)).perform(click());
         onView(withId(R.id.board)).check(matches(isDisplayed()));
     }
