@@ -48,21 +48,18 @@
         android:layout_toStartOf="@+id/top_centre"/>
 
     <Button
-        android:id="@+id/top_right"
         style="@style/CellButton"
         android:tag="2"
         android:layout_alignBottom="@+id/top_centre"
         android:layout_toEndOf="@+id/top_centre"/>
 
     <Button
-        android:id="@+id/bottom_left"
         style="@style/CellButton"
         android:tag="6"
         android:layout_alignTop="@+id/bottom_centre"
         android:layout_toStartOf="@+id/bottom_centre"/>
 
     <Button
-        android:id="@+id/bottom_right"
         style="@style/CellButton"
         android:tag="8"
         android:layout_alignTop="@+id/bottom_centre"

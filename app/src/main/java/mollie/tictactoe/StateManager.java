@@ -4,8 +4,9 @@ import android.os.Bundle;
 
 import ttt.game.GameEngine;
 
-import static mollie.tictactoe.StateConverter.*;
 import static mollie.tictactoe.StateConverter.convertBoardToString;
+import static mollie.tictactoe.StateConverter.getStringMark;
+import static mollie.tictactoe.StateConverter.recreateGame;
 
 public class StateManager {
 
