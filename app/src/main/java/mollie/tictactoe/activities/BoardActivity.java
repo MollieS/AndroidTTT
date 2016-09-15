@@ -1,14 +1,17 @@
 package mollie.tictactoe.activities;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import mollie.tictactoe.ui.BoardView;
-import mollie.tictactoe.ui.CellButton;
 import mollie.tictactoe.GameHelper;
 import mollie.tictactoe.R;
 import mollie.tictactoe.StateManager;
+import mollie.tictactoe.ui.BoardView;
+import mollie.tictactoe.ui.CellButton;
 import mollie.tictactoe.ui.UIBoardManager;
 
 public class BoardActivity extends AppCompatActivity {
@@ -41,6 +44,7 @@ public class BoardActivity extends AppCompatActivity {
         UIBoardManager.updateUI(mark, button);
         if (mGameHelper.gameIsOver()) {
             UIBoardManager.endGame(mGameHelper.getWinner(), getView(), getApplicationContext());
+            promptForPlayAgain().show();
         }
     }
 
@@ -51,5 +55,30 @@ public class BoardActivity extends AppCompatActivity {
 
     private int getButtonPosition(CellButton button) {
         return Integer.valueOf((String) button.getTag());
+    }
+
+    public Dialog promptForPlayAgain() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Would you like to play again?")
+                .setPositiveButton("yes", new PlayAgainClickListener())
+                .setNegativeButton("no", new CancelDialogListener());
+        return builder.create();
+    }
+
+
+    private class PlayAgainClickListener implements DialogInterface.OnClickListener {
+
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            onBackPressed();
+        }
+    }
+
+    private class CancelDialogListener implements DialogInterface.OnClickListener {
+
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            dialogInterface.cancel();
+        }
     }
 }

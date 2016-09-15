@@ -26,7 +26,6 @@ public class UIBoardManager {
     public static void endGame(String winningMark, BoardView view, Context applicationContext) {
         disableAllButtons(view);
         showGameStatus(applicationContext, winningMark);
-        new PlayAgainAlert().createAlert().show();
     }
 
     public static void showGameStatus(Context context, String winningMark) {
