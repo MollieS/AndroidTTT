@@ -14,11 +14,9 @@ import org.junit.runner.RunWith;
 
 import mollie.tictactoe.activities.BoardActivity;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.CoreMatchers.allOf;
+import static mollie.tictactoe.DisplayMatchers.clickButton;
+import static mollie.tictactoe.DisplayMatchers.getElement;
+import static mollie.tictactoe.DisplayMatchers.matchesText;
 
 @RunWith(AndroidJUnit4.class)
 public class OrientationTest {
@@ -28,10 +26,9 @@ public class OrientationTest {
 
     @Test
     public void keepsMarksOnBoardWhenRotated() {
+        clickButton(R.id.centre_button);
         rotateScreen();
-        onView(withId(R.id.centre_button)).perform(click());
-        rotateScreen();
-        onView(allOf(withId(R.id.centre_button), withText("X")));
+        getElement(matchesText(R.id.centre_button, "X"));
     }
 
     private void rotateScreen() {

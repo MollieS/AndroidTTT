@@ -9,15 +9,13 @@ import org.junit.runner.RunWith;
 
 import mollie.tictactoe.activities.BoardActivity;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.core.IsNot.not;
+import static mollie.tictactoe.DisplayMatchers.clickButton;
+import static mollie.tictactoe.DisplayMatchers.getElement;
+import static mollie.tictactoe.DisplayMatchers.isDisabled;
+import static mollie.tictactoe.DisplayMatchers.isDisplayedOnScreen;
+import static mollie.tictactoe.DisplayMatchers.matchesText;
 
 @RunWith(AndroidJUnit4.class)
 public class BoardActivityTest {
@@ -27,32 +25,37 @@ public class BoardActivityTest {
 
     @Test
     public void canPlaceAMarkOnTheBoard() {
-        onClick(R.id.centre_button);
+        clickButton(R.id.centre_button);
 
-        onView(allOf(withId(R.id.centre_right), withText("X")));
+        getElement(matchesText(R.id.centre_right, "X"));
     }
 
     @Test
     public void onceAButtonIsPressedItIsDisabled() {
-        onClick(R.id.centre_button);
+        clickButton(R.id.centre_button);
 
-        onView(withId(R.id.centre_button)).check(matches(not(isEnabled())));
+        getElement(withId(R.id.centre_button)).check(isDisabled());
     }
 
     @Test
     public void canPlayAGame() {
-        onClick(R.id.centre_button);
-        onClick(R.id.top_left);
-        onClick(R.id.centre_left);
-        onClick(R.id.top_centre);
-        onClick(R.id.centre_right);
+        clickButton(R.id.centre_button);
+        clickButton(R.id.top_left);
+        clickButton(R.id.centre_left);
+        clickButton(R.id.top_centre);
+        clickButton(R.id.centre_right);
 
-        onView(withText("X wins!")).check(matches(isDisplayed()));
+        getElement(withText("X wins!")).check(isDisplayedOnScreen());
     }
 
-    private void onClick(int button_id) {
-        onView(withId(button_id)).perform(click());
+    @Test
+    public void promptsToReplayGame() {
+        clickButton(R.id.centre_button);
+        clickButton(R.id.top_left);
+        clickButton(R.id.centre_left);
+        clickButton(R.id.top_centre);
+        clickButton(R.id.centre_right);
+
+        getElement(withText("Would you like to play again?")).check(isDisplayedOnScreen());
     }
-
-
 }
