@@ -6,11 +6,11 @@ import mollie.tictactoe.board.BoardActivity;
 import mollie.tictactoe.testdoubles.ButtonMock;
 import mollie.tictactoe.testdoubles.ContextDummy;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 public class BoardActivityUnitTest {
 
-    private ButtonMock mButton = new ButtonMock(new ContextDummy());
+    private final ButtonMock mButton = new ButtonMock(new ContextDummy());
     private final BoardActivity mBoardActivity = new BoardActivity();
 
     @Test
@@ -19,7 +19,7 @@ public class BoardActivityUnitTest {
 
         mBoardActivity.placeMark(mButton);
 
-        assertTrue(mButton.setTextWasCalled(1, "X"));
+        assertTrue(mButton.getButtonPositionWasCalled(1));
     }
 
     @Test

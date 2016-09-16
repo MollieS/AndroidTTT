@@ -8,9 +8,6 @@ import ttt.game.Marks;
 
 public class StateConverter {
 
-    private static final String CURRENT_MARK = "currentMark";
-    private static final String BOARD = "board";
-
     public static String[] convertBoardToString(Board board) {
         String[] stringBoard = new String[board.size()];
         fillBoard(board, stringBoard);

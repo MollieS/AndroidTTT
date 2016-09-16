@@ -40,7 +40,7 @@ public class BoardActivity extends AppCompatActivity {
 
     public void placeMark(View view) {
         CellButton button = (CellButton) view;
-        int position = getButtonPosition(button);
+        int position = button.getButtonPosition();
         String mark = mGameHelper.playMove(position);
         UIBoardManager.updateUI(mark, button);
         if (mGameHelper.gameIsOver()) {
@@ -61,15 +61,11 @@ public class BoardActivity extends AppCompatActivity {
         return ((BoardView) view);
     }
 
-    private int getButtonPosition(CellButton button) {
-        return Integer.valueOf((String) button.getTag());
-    }
-
-    public Dialog promptForPlayAgain() {
+    private Dialog promptForPlayAgain() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Would you like to play again?")
-                .setPositiveButton("yes", new PlayAgainClickListener())
-                .setNegativeButton("no", new CancelDialogListener());
+        builder.setMessage(R.string.play_again)
+                .setPositiveButton(R.string.yes, new PlayAgainClickListener())
+                .setNegativeButton(R.string.no, new CancelDialogListener());
         return builder.create();
     }
 

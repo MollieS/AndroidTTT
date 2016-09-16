@@ -10,13 +10,13 @@ import mollie.tictactoe.board.UIBoardManager;
 import ttt.game.Board;
 import ttt.game.Marks;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
+
 
 public class UIBoardManagerTest {
 
-    ViewFake mView = new ViewFake(new ContextDummy());
+    private ViewFake mView = new ViewFake(new ContextDummy());
     private ButtonMock mButton = new ButtonMock(new ContextDummy());
-    private GameHelper mGameHelper = new GameHelper();
     private Board board = new Board(3);
 
     @Test
@@ -30,7 +30,7 @@ public class UIBoardManagerTest {
     public void disablesButton() {
         UIBoardManager.updateUI("X", mButton);
 
-        assertTrue(mButton.setEnabledWasCalled(1, false));
+        assertTrue(mButton.disableWasCalled(1));
     }
 
     @Test
@@ -67,6 +67,6 @@ public class UIBoardManagerTest {
 
         UIBoardManager.updateUIBoard(board, mView);
 
-        assertTrue(mButton.setEnabledWasCalled(1, false));
+        assertTrue(mButton.disableWasCalled(1));
     }
 }
