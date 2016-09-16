@@ -1,12 +1,12 @@
-package mollie.tictactoe;
+package mollie.tictactoe.board;
 
 import android.os.Bundle;
 
 import ttt.game.GameEngine;
 
-import static mollie.tictactoe.StateConverter.convertBoardToString;
-import static mollie.tictactoe.StateConverter.getStringMark;
-import static mollie.tictactoe.StateConverter.recreateGame;
+import static mollie.tictactoe.board.StateConverter.convertBoardToString;
+import static mollie.tictactoe.board.StateConverter.getStringMark;
+import static mollie.tictactoe.board.StateConverter.recreateGame;
 
 public class StateManager {
 

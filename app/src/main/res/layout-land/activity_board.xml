@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mollie.tictactoe.ui.BoardView xmlns:android="http://schemas.android.com/apk/res/android"
-                               android:id="@+id/board"
-                               android:layout_width="match_parent"
-                               android:layout_height="match_parent"
-                               android:orientation="vertical">
+<mollie.tictactoe.board.BoardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                  android:id="@+id/board"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:orientation="vertical">
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/centre_button"
         android:tag="4"
         style="@style/CellButton"
@@ -65,4 +65,4 @@
         android:layout_alignTop="@+id/bottom_centre"
         android:layout_toEndOf="@+id/bottom_centre"/>
 
-</mollie.tictactoe.ui.BoardView>
+</mollie.tictactoe.board.BoardView>

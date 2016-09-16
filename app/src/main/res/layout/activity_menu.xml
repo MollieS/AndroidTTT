@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".activities.MenuActivity">
+    tools:context=".menu.MenuActivity">
 
     <Button
         android:id="@+id/human_v_human_button"
@@ -18,5 +18,14 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="138dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/human_v_computer"
+        android:id="@+id/human_v_computer"
+        android:layout_below="@+id/human_v_human_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"/>
 
 </RelativeLayout>

@@ -2,7 +2,7 @@ package mollie.tictactoe.testdoubles;
 
 import android.content.Context;
 
-import mollie.tictactoe.ui.CellButton;
+import mollie.tictactoe.board.CellButton;
 
 public class ButtonMock extends CellButton {
 

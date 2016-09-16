@@ -2,10 +2,11 @@ package mollie.tictactoe;
 
 import org.junit.Test;
 
+import mollie.tictactoe.board.GameHelper;
 import mollie.tictactoe.testdoubles.ButtonMock;
 import mollie.tictactoe.testdoubles.ContextDummy;
 import mollie.tictactoe.testdoubles.ViewFake;
-import mollie.tictactoe.ui.UIBoardManager;
+import mollie.tictactoe.board.UIBoardManager;
 import ttt.game.Board;
 import ttt.game.Marks;
 

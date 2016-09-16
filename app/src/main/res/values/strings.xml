@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TicTacToe</string>
     <string name="human_v_human">Human v Human</string>
+    <string name="human_v_computer">Human v Computer</string>
 </resources>

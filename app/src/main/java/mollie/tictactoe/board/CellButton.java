@@ -1,4 +1,4 @@
-package mollie.tictactoe.ui;
+package mollie.tictactoe.board;
 
 import android.content.Context;
 import android.util.AttributeSet;

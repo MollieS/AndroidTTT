@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mollie.tictactoe.ui.BoardView
+<mollie.tictactoe.board.BoardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/board"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/centre_button"
         style="@style/CellButton"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:tag="4"/>
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/top_centre"
         style="@style/CellButton"
         android:layout_above="@+id/centre_button"
         android:layout_alignStart="@+id/centre_button"
         android:tag="1"/>
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/bottom_centre"
         style="@style/CellButton"
         android:layout_alignStart="@+id/centre_button"
         android:layout_below="@+id/centre_button"
         android:tag="7"/>
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/centre_left"
         style="@style/CellButton"
         android:layout_alignBottom="@+id/centre_button"
         android:layout_toStartOf="@+id/centre_button"
         android:tag="3"/>
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/centre_right"
         style="@style/CellButton"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/centre_button"
         android:tag="5"/>
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/top_left"
         style="@style/CellButton"
         android:layout_alignBottom="@+id/top_centre"
         android:layout_toStartOf="@+id/top_centre"
         android:tag="0"/>
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         style="@style/CellButton"
         android:layout_alignBottom="@+id/top_centre"
         android:layout_toEndOf="@+id/top_centre"
         android:tag="2"/>
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         style="@style/CellButton"
         android:layout_alignTop="@+id/bottom_centre"
         android:layout_toStartOf="@+id/bottom_centre"
         android:tag="6"/>
 
-    <mollie.tictactoe.ui.CellButton
+    <mollie.tictactoe.board.CellButton
         style="@style/CellButton"
         android:layout_alignTop="@+id/bottom_centre"
         android:layout_toEndOf="@+id/bottom_centre"
         android:tag="8"/>
 
-</mollie.tictactoe.ui.BoardView>
+</mollie.tictactoe.board.BoardView>

@@ -3,6 +3,7 @@ package mollie.tictactoe;
 import org.junit.Before;
 import org.junit.Test;
 
+import mollie.tictactoe.board.GameHelper;
 import mollie.tictactoe.players.MobilePlayer;
 import ttt.Player;
 import ttt.game.Board;
@@ -131,6 +132,15 @@ public class GameHelperTest {
         mGameHelper.playMove(1);
 
         assertEquals(null, mGameHelper.getWinner());
+    }
+
+    @Test
+    public void returnsTheMoveOfComputerPlayer() {
+        mGameHelper.playMove(4);
+
+        int move = mGameHelper.playComputerMove();
+
+        assertEquals(0, move);
     }
 
     private void playAGameWhereXWins() {

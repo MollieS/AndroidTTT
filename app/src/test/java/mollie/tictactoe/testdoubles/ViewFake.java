@@ -3,8 +3,8 @@ package mollie.tictactoe.testdoubles;
 import android.content.Context;
 import android.view.View;
 
-import mollie.tictactoe.ui.BoardView;
-import mollie.tictactoe.ui.CellButton;
+import mollie.tictactoe.board.BoardView;
+import mollie.tictactoe.board.CellButton;
 
 public class ViewFake extends BoardView {
 

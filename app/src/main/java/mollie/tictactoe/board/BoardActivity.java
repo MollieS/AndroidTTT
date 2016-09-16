@@ -1,27 +1,28 @@
-package mollie.tictactoe.activities;
+package mollie.tictactoe.board;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
-import mollie.tictactoe.GameHelper;
 import mollie.tictactoe.R;
-import mollie.tictactoe.StateManager;
-import mollie.tictactoe.ui.BoardView;
-import mollie.tictactoe.ui.CellButton;
-import mollie.tictactoe.ui.UIBoardManager;
 
 public class BoardActivity extends AppCompatActivity {
 
+    public static final String EXTRA_HUMAN_GAME = "mollie.tictactoe.human_game";
     private GameHelper mGameHelper = new GameHelper();
+    private boolean mIsAHumanGame;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
+        Intent intent = getIntent();
+        mIsAHumanGame = intent.getBooleanExtra(EXTRA_HUMAN_GAME, true);
         mGameHelper = new GameHelper(StateManager.restoreStateToGame(savedInstanceState));
     }
 
@@ -45,6 +46,13 @@ public class BoardActivity extends AppCompatActivity {
         if (mGameHelper.gameIsOver()) {
             UIBoardManager.endGame(mGameHelper.getWinner(), getView(), getApplicationContext());
             promptForPlayAgain().show();
+        }
+        if (!mIsAHumanGame) {
+            int move = mGameHelper.playComputerMove();
+            Log.v("Comp move", String.valueOf(move));
+            String computerMark = mGameHelper.playMove(move);
+            CellButton computerButton = (CellButton) view.findViewWithTag(String.valueOf(move));
+            UIBoardManager.updateUI(computerMark, computerButton);
         }
     }
 

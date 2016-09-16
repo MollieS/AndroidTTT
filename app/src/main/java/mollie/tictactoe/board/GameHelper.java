@@ -1,4 +1,6 @@
-package mollie.tictactoe;
+package mollie.tictactoe.board;
+
+import android.util.Log;
 
 import mollie.tictactoe.players.MobilePlayer;
 import ttt.game.Board;
@@ -54,5 +56,20 @@ public class GameHelper {
             return mGameEngine.winningMark().toString();
         }
         return null;
+    }
+
+    public int playComputerMove() {
+        int computerMove = getComputerMove();
+        mGameEngine.play(computerMove);
+        return computerMove;
+    }
+
+    private int getComputerMove() {
+        try {
+            return mGameEngine.getPlayerMove(mGameEngine.showBoard());
+        } catch (Exception e) {
+            Log.e("ERROR", e.getMessage());
+        }
+        return 0;
     }
 }

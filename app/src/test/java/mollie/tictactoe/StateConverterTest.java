@@ -3,6 +3,7 @@ package mollie.tictactoe;
 import org.junit.Before;
 import org.junit.Test;
 
+import mollie.tictactoe.board.StateConverter;
 import mollie.tictactoe.players.MobilePlayer;
 import ttt.Player;
 import ttt.game.Board;

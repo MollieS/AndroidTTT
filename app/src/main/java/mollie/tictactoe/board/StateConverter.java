@@ -1,4 +1,4 @@
-package mollie.tictactoe;
+package mollie.tictactoe.board;
 
 import mollie.tictactoe.players.MobilePlayer;
 import ttt.Player;

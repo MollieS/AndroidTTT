@@ -2,7 +2,7 @@ package mollie.tictactoe;
 
 import org.junit.Test;
 
-import mollie.tictactoe.activities.BoardActivity;
+import mollie.tictactoe.board.BoardActivity;
 import mollie.tictactoe.testdoubles.ButtonMock;
 import mollie.tictactoe.testdoubles.ContextDummy;
 
