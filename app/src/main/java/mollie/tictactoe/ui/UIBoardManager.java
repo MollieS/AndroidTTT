@@ -28,7 +28,7 @@ public class UIBoardManager {
         showGameStatus(applicationContext, winningMark);
     }
 
-    public static void showGameStatus(Context context, String winningMark) {
+    private static void showGameStatus(Context context, String winningMark) {
         String gameStatus;
         gameStatus = getGameStatus(winningMark);
         Toast.makeText(context, gameStatus, Toast.LENGTH_SHORT).show();

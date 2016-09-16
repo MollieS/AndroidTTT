@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 public class UIBoardManagerTest {
 
-    ViewFake mView = new ViewFake(new ContextDummy());
+    private ViewFake mView = new ViewFake(new ContextDummy());
     private ButtonMock mButton = new ButtonMock(new ContextDummy());
     private Board board = new Board(3);
 

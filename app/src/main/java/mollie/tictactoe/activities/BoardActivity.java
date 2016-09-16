@@ -53,7 +53,7 @@ public class BoardActivity extends AppCompatActivity {
         return ((BoardView) view);
     }
 
-    public Dialog promptForPlayAgain() {
+    private Dialog promptForPlayAgain() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.play_again)
                 .setPositiveButton(R.string.yes, new PlayAgainClickListener())

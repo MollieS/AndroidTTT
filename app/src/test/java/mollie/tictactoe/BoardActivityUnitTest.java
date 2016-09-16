@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class BoardActivityUnitTest {
 
-    private ButtonMock mButton = new ButtonMock(new ContextDummy());
+    private final ButtonMock mButton = new ButtonMock(new ContextDummy());
     private final BoardActivity mBoardActivity = new BoardActivity();
 
     @Test
