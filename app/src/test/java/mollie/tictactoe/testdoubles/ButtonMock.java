@@ -6,18 +6,23 @@ import mollie.tictactoe.ui.CellButton;
 
 public class ButtonMock extends CellButton {
 
-    private String mTag;
+    private int mTimesCalledGetButtonPosition;
     private int mTimesCalledSetText;
     private int mTimesCalledSetEnabled;
+    private String mTag;
     private String mArgument;
-    private boolean mEnabledArgument;
 
     public ButtonMock(Context context) {
         super(context);
         mTimesCalledSetText = 0;
         mTimesCalledSetEnabled = 0;
+        mTimesCalledGetButtonPosition = 0;
         mArgument = "X";
-        mEnabledArgument = false;
+    }
+
+    @Override
+    public void disable() {
+        mTimesCalledSetEnabled++;
     }
 
     public void setTag(String tag) {
@@ -37,12 +42,16 @@ public class ButtonMock extends CellButton {
         return (times == mTimesCalledSetText && argument.equals(mArgument));
     }
 
-    public void setEnabled(boolean enabled) {
-        mEnabledArgument = enabled;
-        mTimesCalledSetEnabled++;
+    public boolean disableWasCalled(int times) {
+        return (times == mTimesCalledSetEnabled);
     }
 
-    public boolean setEnabledWasCalled(int times, boolean enabledArgument) {
-        return (times == mTimesCalledSetEnabled && enabledArgument == mEnabledArgument);
+    public int getButtonPosition() {
+        mTimesCalledGetButtonPosition++;
+        return Integer.valueOf(mTag);
+    }
+
+    public boolean getButtonPositionWasCalled(int times) {
+        return (times == mTimesCalledGetButtonPosition);
     }
 }

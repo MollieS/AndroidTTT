@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TicTacToe</string>
     <string name="human_v_human">Human v Human</string>
+    <string name="play_again">Would you like to play again?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 </resources>

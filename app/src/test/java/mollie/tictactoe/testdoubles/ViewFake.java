@@ -23,4 +23,8 @@ public class ViewFake extends BoardView {
         return mButton;
     }
 
+    @Override
+    public CellButton findButtonByPosition(int position) {
+        return mButton;
+    }
 }

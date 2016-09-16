@@ -10,7 +10,7 @@ public class UIBoardManager {
 
     public static void updateUIBoard(Board board, BoardView view) {
         for (int i = 0; i < board.size(); i++) {
-            CellButton button = (CellButton) view.findViewWithTag(String.valueOf(i));
+            CellButton button = view.findButtonByPosition(i);
             Marks mark = board.getMarkAt(i);
             if (mark != Marks.NULL) {
                 updateUI(mark.toString(), button);
@@ -20,11 +20,11 @@ public class UIBoardManager {
 
     public static void updateUI(String mark, CellButton button) {
         button.setText(mark);
-        button.setEnabled(false);
+        button.disable();
     }
 
     public static void endGame(String winningMark, BoardView view, Context applicationContext) {
-        disableAllButtons(view);
+        view.disableAllButtons();
         showGameStatus(applicationContext, winningMark);
     }
 
@@ -39,12 +39,5 @@ public class UIBoardManager {
             return "It's a draw!";
         }
         return winningMark + " wins!";
-    }
-
-    private static void disableAllButtons(BoardView view) {
-        for (int i = 0; i < 9; i++) {
-            CellButton button = (CellButton) view.findViewWithTag(String.valueOf(i));
-            button.setEnabled(false);
-        }
     }
 }

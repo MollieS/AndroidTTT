@@ -25,4 +25,13 @@ public class CellButton extends Button {
     public void setText(String text) {
         super.setText(text);
     }
+
+    public int getButtonPosition() {
+        String tag = (String) super.getTag();
+        return Integer.valueOf(tag);
+    }
+
+    public void disable() {
+        super.setEnabled(false);
+    }
 }

@@ -19,7 +19,7 @@ public class BoardActivityUnitTest {
 
         mBoardActivity.placeMark(mButton);
 
-        assertTrue(mButton.setTextWasCalled(1, "X"));
+        assertTrue(mButton.getButtonPositionWasCalled(1));
     }
 
     @Test

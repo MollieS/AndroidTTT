@@ -29,7 +29,7 @@ public class UIBoardManagerTest {
     public void disablesButton() {
         UIBoardManager.updateUI("X", mButton);
 
-        assertTrue(mButton.setEnabledWasCalled(1, false));
+        assertTrue(mButton.disableWasCalled(1));
     }
 
     @Test
@@ -66,6 +66,6 @@ public class UIBoardManagerTest {
 
         UIBoardManager.updateUIBoard(board, mView);
 
-        assertTrue(mButton.setEnabledWasCalled(1, false));
+        assertTrue(mButton.disableWasCalled(1));
     }
 }
