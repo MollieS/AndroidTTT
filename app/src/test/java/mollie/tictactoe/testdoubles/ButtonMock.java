@@ -43,7 +43,6 @@ public class ButtonMock extends CellButton {
     }
 
     public boolean setEnabledWasCalled(int times, boolean enabledArgument) {
-
         return (times == mTimesCalledSetEnabled && enabledArgument == mEnabledArgument);
     }
 }

@@ -6,7 +6,7 @@ import mollie.tictactoe.activities.BoardActivity;
 import mollie.tictactoe.testdoubles.ButtonMock;
 import mollie.tictactoe.testdoubles.ContextDummy;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 public class BoardActivityUnitTest {
 
