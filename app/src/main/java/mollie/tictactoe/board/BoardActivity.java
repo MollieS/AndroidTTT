@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import mollie.tictactoe.R;
@@ -14,7 +13,7 @@ import mollie.tictactoe.R;
 public class BoardActivity extends AppCompatActivity {
 
     public static final String EXTRA_HUMAN_GAME = "mollie.tictactoe.human_game";
-    private GameHelper mGameHelper = new GameHelper();
+    private GameHelper mGameHelper;
     private boolean mIsAHumanGame;
 
     @Override
@@ -23,7 +22,7 @@ public class BoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_board);
         Intent intent = getIntent();
         mIsAHumanGame = intent.getBooleanExtra(EXTRA_HUMAN_GAME, true);
-        mGameHelper = new GameHelper(StateManager.restoreStateToGame(savedInstanceState));
+        mGameHelper = new GameHelper(StateManager.restoreStateToGame(savedInstanceState), mIsAHumanGame);
     }
 
     @Override
@@ -39,21 +38,33 @@ public class BoardActivity extends AppCompatActivity {
     }
 
     public void placeMark(View view) {
-        CellButton button = (CellButton) view;
+        playMove((CellButton) view);
+        checkIfGameIsOver();
+        if (!mIsAHumanGame) {
+            playComputerMove();
+            checkIfGameIsOver();
+        }
+    }
+
+    private void playMove(CellButton view) {
+        CellButton button = view;
         int position = button.getButtonPosition();
         String mark = mGameHelper.playMove(position);
         UIBoardManager.updateUI(mark, button);
+    }
+
+    private void checkIfGameIsOver() {
         if (mGameHelper.gameIsOver()) {
             UIBoardManager.endGame(mGameHelper.getWinner(), getView(), getApplicationContext());
             promptForPlayAgain().show();
         }
-        if (!mIsAHumanGame) {
-            int move = mGameHelper.playComputerMove();
-            Log.v("Comp move", String.valueOf(move));
-            String computerMark = mGameHelper.playMove(move);
-            CellButton computerButton = (CellButton) view.findViewWithTag(String.valueOf(move));
-            UIBoardManager.updateUI(computerMark, computerButton);
-        }
+    }
+
+    private void playComputerMove() {
+        int move = mGameHelper.getComputerMove();
+        String computerMark = mGameHelper.playMove(move);
+        CellButton computerButton = getView().findButtonByPosition(move);
+        UIBoardManager.updateUI(computerMark, computerButton);
     }
 
     private BoardView getView() {

@@ -1,6 +1,5 @@
 package mollie.tictactoe;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import mollie.tictactoe.board.GameHelper;
@@ -9,6 +8,7 @@ import ttt.Player;
 import ttt.game.Board;
 import ttt.game.GameEngine;
 import ttt.game.Marks;
+import ttt.players.PerfectPlayer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -16,12 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 public class GameHelperTest {
 
-    private GameHelper mGameHelper;
-
-    @Before
-    public void setUp() {
-        mGameHelper = new GameHelper();
-    }
+    private GameHelper mGameHelper = new GameHelper(true);
 
     @Test
     public void createsAGameWithTwoHumanPlayers() {
@@ -135,12 +130,33 @@ public class GameHelperTest {
     }
 
     @Test
+    public void createsHumanvComputerGame() {
+        mGameHelper = new GameHelper(false);
+        GameEngine gameEngine = mGameHelper.createGame();
+        gameEngine.play(1);
+
+        Player player = gameEngine.getCurrentPlayer();
+
+        assertEquals(PerfectPlayer.class, player.getClass());
+    }
+
+    @Test
     public void returnsTheMoveOfComputerPlayer() {
+        mGameHelper = new GameHelper(true);
         mGameHelper.playMove(4);
 
-        int move = mGameHelper.playComputerMove();
+        int move = mGameHelper.getComputerMove();
 
         assertEquals(0, move);
+    }
+
+    @Test
+    public void returnsTheCorrectMarkForComputerPlayer() {
+        mGameHelper = new GameHelper(true);
+
+        mGameHelper.playMove(4);
+
+
     }
 
     private void playAGameWhereXWins() {
