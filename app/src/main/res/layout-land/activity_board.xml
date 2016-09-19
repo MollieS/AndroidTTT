@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mollie.tictactoe.ui.BoardView xmlns:android="http://schemas.android.com/apk/res/android"
+                               android:id="@+id/board"
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:orientation="vertical">
+
+    <mollie.tictactoe.ui.CellButton
+        android:id="@+id/centre_button"
+        android:tag="4"
+        style="@style/CellButton"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <Button
+        android:id="@+id/top_centre"
+        android:tag="1"
+        style="@style/CellButton"
+        android:layout_above="@+id/centre_button"
+        android:layout_alignStart="@+id/centre_button"/>
+
+    <Button
+        android:id="@+id/bottom_centre"
+        style="@style/CellButton"
+        android:tag="7"
+        android:layout_alignStart="@+id/centre_button"
+        android:layout_below="@+id/centre_button"/>
+
+    <Button
+        android:id="@+id/centre_left"
+        style="@style/CellButton"
+        android:tag="3"
+        android:layout_alignBottom="@+id/centre_button"
+        android:layout_toStartOf="@+id/centre_button"/>
+
+    <Button
+        android:id="@+id/centre_right"
+        style="@style/CellButton"
+        android:tag="5"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/centre_button"/>
+
+    <Button
+        android:id="@+id/top_left"
+        style="@style/CellButton"
+        android:tag="0"
+        android:layout_alignBottom="@+id/top_centre"
+        android:layout_toStartOf="@+id/top_centre"/>
+
+    <Button
+        style="@style/CellButton"
+        android:tag="2"
+        android:layout_alignBottom="@+id/top_centre"
+        android:layout_toEndOf="@+id/top_centre"/>
+
+    <Button
+        style="@style/CellButton"
+        android:tag="6"
+        android:layout_alignTop="@+id/bottom_centre"
+        android:layout_toStartOf="@+id/bottom_centre"/>
+
+    <Button
+        style="@style/CellButton"
+        android:tag="8"
+        android:layout_alignTop="@+id/bottom_centre"
+        android:layout_toEndOf="@+id/bottom_centre"/>
+
+</mollie.tictactoe.ui.BoardView>
