@@ -150,15 +150,6 @@ public class GameHelperTest {
         assertEquals(0, move);
     }
 
-    @Test
-    public void returnsTheCorrectMarkForComputerPlayer() {
-        mGameHelper = new GameHelper(true);
-
-        mGameHelper.playMove(4);
-
-
-    }
-
     private void playAGameWhereXWins() {
         mGameHelper.playMove(0);
         mGameHelper.playMove(1);

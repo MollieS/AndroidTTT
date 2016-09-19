@@ -28,6 +28,8 @@ public class BoardActivityTest {
 
     @Test
     public void canPlaceAMarkOnTheBoard() {
+        startActivity(true);
+
         clickButton(R.id.centre_button);
 
         getElement(matchesText(R.id.centre_right, "X"));
@@ -35,6 +37,8 @@ public class BoardActivityTest {
 
     @Test
     public void onceAButtonIsPressedItIsDisabled() {
+        startActivity(true);
+
         clickButton(R.id.centre_button);
 
         getElement(withId(R.id.centre_button)).check(isDisabled());
@@ -61,6 +65,7 @@ public class BoardActivityTest {
 
     @Test
     public void promptsToReplayGame() {
+        startActivity(true);
         clickButton(R.id.centre_button);
         clickButton(R.id.top_left);
         clickButton(R.id.centre_left);
@@ -76,6 +81,5 @@ public class BoardActivityTest {
         Intent intent = new Intent(targetContext, BoardActivity.class);
         intent.putExtra(BoardActivity.EXTRA_HUMAN_GAME, isAComputerGame);
         mActivityTestRule.launchActivity(intent);
-        getElement(withText("X wins!")).check(isDisplayedOnScreen());
     }
 }

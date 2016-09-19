@@ -12,54 +12,54 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 
-    <Button
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/top_centre"
         android:tag="1"
         style="@style/CellButton"
         android:layout_above="@+id/centre_button"
         android:layout_alignStart="@+id/centre_button"/>
 
-    <Button
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/bottom_centre"
         style="@style/CellButton"
         android:tag="7"
         android:layout_alignStart="@+id/centre_button"
         android:layout_below="@+id/centre_button"/>
 
-    <Button
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/centre_left"
         style="@style/CellButton"
         android:tag="3"
         android:layout_alignBottom="@+id/centre_button"
         android:layout_toStartOf="@+id/centre_button"/>
 
-    <Button
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/centre_right"
         style="@style/CellButton"
         android:tag="5"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/centre_button"/>
 
-    <Button
+    <mollie.tictactoe.board.CellButton
         android:id="@+id/top_left"
         style="@style/CellButton"
         android:tag="0"
         android:layout_alignBottom="@+id/top_centre"
         android:layout_toStartOf="@+id/top_centre"/>
 
-    <Button
+    <mollie.tictactoe.board.CellButton
         style="@style/CellButton"
         android:tag="2"
         android:layout_alignBottom="@+id/top_centre"
         android:layout_toEndOf="@+id/top_centre"/>
 
-    <Button
+    <mollie.tictactoe.board.CellButton
         style="@style/CellButton"
         android:tag="6"
         android:layout_alignTop="@+id/bottom_centre"
         android:layout_toStartOf="@+id/bottom_centre"/>
 
-    <Button
+    <mollie.tictactoe.board.CellButton
         style="@style/CellButton"
         android:tag="8"
         android:layout_alignTop="@+id/bottom_centre"
