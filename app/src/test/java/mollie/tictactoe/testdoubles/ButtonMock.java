@@ -25,10 +25,6 @@ public class ButtonMock extends CellButton {
         mTimesCalledSetEnabled++;
     }
 
-    public void setTag(String tag) {
-        mTag = tag;
-    }
-
     public String getTag() {
         return mTag;
     }
@@ -49,9 +45,5 @@ public class ButtonMock extends CellButton {
     public int getButtonPosition() {
         mTimesCalledGetButtonPosition++;
         return Integer.valueOf(mTag);
-    }
-
-    public boolean getButtonPositionWasCalled(int times) {
-        return (times == mTimesCalledGetButtonPosition);
     }
 }

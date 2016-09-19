@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -40,17 +41,16 @@ public class BoardActivity extends AppCompatActivity {
     public void placeMark(View view) {
         playMove((CellButton) view);
         checkIfGameIsOver();
-        if (!mIsAHumanGame) {
+        if (!mIsAHumanGame && !mGameHelper.gameIsOver()) {
             playComputerMove();
             checkIfGameIsOver();
         }
     }
 
     private void playMove(CellButton view) {
-        CellButton button = view;
-        int position = button.getButtonPosition();
+        int position = view.getButtonPosition();
         String mark = mGameHelper.playMove(position);
-        UIBoardManager.updateUI(mark, button);
+        UIBoardManager.updateUI(mark, view);
     }
 
     private void checkIfGameIsOver() {
@@ -61,10 +61,7 @@ public class BoardActivity extends AppCompatActivity {
     }
 
     private void playComputerMove() {
-        int move = mGameHelper.getComputerMove();
-        String computerMark = mGameHelper.playMove(move);
-        CellButton computerButton = getView().findButtonByPosition(move);
-        UIBoardManager.updateUI(computerMark, computerButton);
+        new ComputerMove().execute();
     }
 
     private BoardView getView() {
@@ -94,6 +91,23 @@ public class BoardActivity extends AppCompatActivity {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
             dialogInterface.cancel();
+        }
+    }
+
+    private class ComputerMove extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            final int move = mGameHelper.getComputerMove();
+            final String computerMark = mGameHelper.playMove(move);
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    CellButton computerButton = getView().findButtonByPosition(move);
+                    UIBoardManager.updateUI(computerMark, computerButton);
+                }
+            });
+            return null;
         }
     }
 }
